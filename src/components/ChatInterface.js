@@ -26,7 +26,7 @@ const ChatInterface = () => {
 
   
   useEffect(() => {
-    const apiKey = "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";
+    const apiKey = "YOUR API KEY";
     if (!apiKey) {
       setApiKeyError(true);
     } else {
