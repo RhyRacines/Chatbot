@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# OpenRouter AI Chatbot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that allows you to chat with various AI models using the OpenRouter API.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Chat with different AI models (Qwen3 4B, Llama 4 Maverick)
+- Simple and responsive user interface
+- Real-time chat experience
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (version 12 or higher)
+- npm or yarn
+- OpenRouter API key (sign up at [OpenRouter](https://openrouter.ai/))
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository:
+   ```
+   git clone <your-repo-url>
+   cd chatbot-app
+   ```
 
-### `npm run build`
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Create a `.env` file in the root directory:
+   ```
+   cp .env.example .env
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Add your OpenRouter API key to the `.env` file:
+   ```
+   REACT_APP_OPENROUTER_API_KEY=your_api_key_here
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Start the development server:
+   ```
+   npm start
+   ```
 
-### `npm run eject`
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Using the Chatbot
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Select an AI model from the dropdown menu.
+2. Type your message in the input field.
+3. Press the send button or hit Enter to send your message.
+4. Wait for the AI to respond.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Available Models
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The chatbot supports the following free models:
+- Qwen3 4B - A lightweight but capable model from Alibaba Cloud
+- Llama 4 Maverick - Meta's latest open-source model
 
-## Learn More
+## Customization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can customize the application by:
+- Adding more models to the list in `ChatInterface.js`
+- Modifying the UI/UX in the CSS files
+- Adding additional functionality like chat history, session management, etc.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Acknowledgments
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [OpenRouter](https://openrouter.ai/) for providing access to various AI models
+- [React](https://reactjs.org/) for the frontend framework
