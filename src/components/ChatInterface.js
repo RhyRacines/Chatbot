@@ -13,14 +13,24 @@ const ChatInterface = () => {
   // Available models
   const models = [
     { id: 'qwen/qwen1.5-4b-chat', name: 'Qwen3 4B (Free)' },
-    { id: 'meta-llama/llama-4-maverick', name: 'Llama 4 Maverick (Free)' }
+    { id: 'meta-llama/llama-4-maverick', name: 'Llama 4 Maverick (Free)' },
+    { id: 'mistral/mistral-7b-instruct-v0.2', name: 'Mistral 7B Instruct (Free)' },
+    { id: 'meta-llama/llama-3-8b-instruct', name: 'Llama 3 8B Instruct (Free)' },
+    { id: 'google/gemini-pro', name: 'Gemini Pro (Free)' },
+    { id: 'openai/gpt-3.5-turbo', name: 'GPT-3.5 Turbo (Free)' },
+    { id: 'meta-llama/llama-3-70b-instruct', name: 'Llama 3 70B Instruct (Free)' },
+    { id: 'mistral/mixtral-8x7b-instruct-v0.1', name: 'Mixtral 8x7B Instruct (Free)' },
+    { id: 'llava/llava-1.5-7b', name: 'LLaVA 1.5 7B (Free)' },
+    { id: 'openai/gpt-4-turbo', name: 'GPT-4 Turbo (Free)' }
   ];
 
   // Check API key on component mount
   useEffect(() => {
-    const apiKey = "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";
-    if (!apiKey || apiKey === 'your_api_key_here') {
+    const apiKey = process.env.REACT_APP_OPENROUTER_API_KEY;
+    if (!apiKey) {
       setApiKeyError(true);
+    } else {
+      openRouterService.setApiKey(apiKey);
     }
   }, []);
 
