@@ -6,13 +6,13 @@ const ChatInterface = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedModel, setSelectedModel] = useState('qwen/qwen1.5-4b-chat');
+  const [selectedModel, setSelectedModel] = useState('meta-llama/llama-4-maverick');
   const [apiKeyError, setApiKeyError] = useState(false);
   const messagesEndRef = useRef(null);
 
   // Available models
   const models = [
-    { id: 'qwen/qwen1.5-4b-chat', name: 'Qwen3 4B (Free)' },
+    { id: 'qwen/qwen1.5-4b-chat', name: 'Qwen3 1.7B (free)' },
     { id: 'meta-llama/llama-4-maverick', name: 'Llama 4 Maverick (Free)' },
     { id: 'mistral/mistral-7b-instruct-v0.2', name: 'Mistral 7B Instruct (Free)' },
     { id: 'meta-llama/llama-3-8b-instruct', name: 'Llama 3 8B Instruct (Free)' },
@@ -24,9 +24,9 @@ const ChatInterface = () => {
     { id: 'openai/gpt-4-turbo', name: 'GPT-4 Turbo (Free)' }
   ];
 
-  // Check API key on component mount
+  
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_OPENROUTER_API_KEY;
+    const apiKey = "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";
     if (!apiKey) {
       setApiKeyError(true);
     } else {
@@ -34,7 +34,6 @@ const ChatInterface = () => {
     }
   }, []);
 
-  // Auto-scroll to bottom of chat
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -79,8 +78,6 @@ const ChatInterface = () => {
       let errorMessage = 'Sorry, I encountered an error. ';
       
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
         if (error.response.status === 401) {
           errorMessage += 'Please check your API key and make sure it is valid.';
           setApiKeyError(true);
@@ -90,10 +87,8 @@ const ChatInterface = () => {
           errorMessage += `Server error: ${error.response.status}`;
         }
       } else if (error.request) {
-        // The request was made but no response was received
         errorMessage += 'No response from server. Please check your internet connection.';
       } else {
-        // Something happened in setting up the request that triggered an Error
         errorMessage += error.message;
       }
       
